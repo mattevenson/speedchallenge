@@ -5,13 +5,13 @@ mkdir data/test/flow
 
 cd flownet2-pytorch
 
-python main.py --inference --inference_batch_size 4 --model FlowNet2 --save_flow --save ../data/train/flow --inference_dataset ImagesFromFolder --inference_dataset_root ../data/train/raw --resume ../models/FlowNet2_checkpoint.pth.tar
-python main.py --inference --inference_batch_size 4 --model FlowNet2 --save_flow --save ../data/test/flow --inference_dataset ImagesFromFolder --inference_dataset_root ../data/test/raw --resume ../models/FlowNet2_checkpoint.pth.tar
+python main.py --inference --model FlowNet2 --save_flow --save ../data/train/flow --inference_dataset ImagesFromFolder --inference_dataset_root ../data/train/raw --resume ../models/FlowNet2_checkpoint.pth.tar
+python main.py --inference --model FlowNet2 --save_flow --save ../data/test/flow --inference_dataset ImagesFromFolder --inference_dataset_root ../data/test/raw --resume ../models/FlowNet2_checkpoint.pth.tar
 
 cd ..
 
-./flow-io-opencv/cli/cli data/train/flow/inference/run.epoch-0-flow-field data/train/flow --vis-dir data/train/flow
-./flow-io-opencv/cli/cli data/test/flow/inference/run.epoch-0-flow-field data/test/flow --vis-dir data/test/flow
+./flow-io-opencv/build/cli/cli data/train/flow/inference/run.epoch-0-flow-field data/train/flow --vis-dir data/train/flow
+./flow-io-opencv/build/cli/cli data/test/flow/inference/run.epoch-0-flow-field data/test/flow --vis-dir data/test/flow
 
 # rm data/train/flow/*.txt
 # rm data/train/flow/arg.txt
