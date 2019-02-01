@@ -1,0 +1,12 @@
+[submodule "monodepth"]
+	path = monodepth
+	url = https://github.com/mrharicot/monodepth.git
+[submodule "flownet2-pytorch"]
+	path = flownet2-pytorch
+	url = https://github.com/NVIDIA/flownet2-pytorch.git
+[submodule "Mask_RCNN"]
+	path = Mask_RCNN
+	url = https://github.com/matterport/Mask_RCNN.git
+[submodule "flow-io-opencv"]
+	path = flow-io-opencv
+	url = https://github.com/davidstutz/flow-io-opencv.git
