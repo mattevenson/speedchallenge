@@ -11,27 +11,27 @@ python main.py --inference --inference_batch_size 4 --model FlowNet2 --save_flow
 cd ..
 
 ./flow-io-opencv/cli/cli data/train/flow/inference/run.epoch-0-flow-field data/train/flow --vis-dir data/train/flow
-./flow-io-opencv/cli/cli data/test/flow/inference/run.epoch-0-flow-field data/train/flow --vis-dir data/test/flow
+./flow-io-opencv/cli/cli data/test/flow/inference/run.epoch-0-flow-field data/test/flow --vis-dir data/test/flow
 
-rm data/train/flow/*.txt
-rm data/train/flow/arg.txt
-rm -rf data/train/flow/inference
-rm -rf data/train/flow/train
-rm -rf data/train/flow/validation
+# rm data/train/flow/*.txt
+# rm data/train/flow/arg.txt
+# rm -rf data/train/flow/inference
+# rm -rf data/train/flow/train
+# rm -rf data/train/flow/validation
 
 
-for file in data/train/flow/*.flo.png; do
-    mv $file "${data/train/flow/file%.flo.png}.png";
-done
+# for file in data/train/flow/*.flo.png; do
+#     mv $file "${data/train/flow/file%.flo.png}.png";
+# done
 
-rm data/test/flow/*.txt
-rm -rf data/test/flow/inference
-rm -rf data/test/flow/train
-rm -rf data/test/flow/validation
-rm data/test/flow/arg.txt
+# rm data/test/flow/*.txt
+# rm -rf data/test/flow/inference
+# rm -rf data/test/flow/train
+# rm -rf data/test/flow/validation
+# rm data/test/flow/arg.txt
 
-for file in data/test/flow/*.flo.png; do
-    mv $file "${data/test/flow/file%.flo.png}.png";
-done
+# for file in data/test/flow/*.flo.png; do
+#     mv $file "${data/test/flow/file%.flo.png}.png";
+# done
 
 
