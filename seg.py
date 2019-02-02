@@ -17,7 +17,7 @@ from Mask_RCNN.mrcnn.model import MaskRCNN
 
 # moving object class ids are 1-9
 
-batch_size = 2
+batch_size = 4
 
 train_paths = [f'data/train/raw/{f}' for f in os.listdir('data/train/raw')]
 test_paths = [f'data/test/raw/{f}' for f in os.listdir('data/test/raw')]
@@ -30,15 +30,18 @@ def calculate_mean():
 
     return mean
 
+mean = calculate_mean()
+
 class CommaConfig(coco.CocoConfig):
     NAME = 'comma.ai'
 
+    GPU_COUNT = 1	    
     IMAGES_PER_GPU = batch_size
 
     IMAGE_MIN_DIM = 256
     IMAGE_MAX_DIM = 512
 
-    MEAN_PIXEL = calculate_mean()
+    MEAN_PIXEL = mean
 
 if __name__ == '__main__':
     config = CommaConfig()
@@ -53,8 +56,11 @@ if __name__ == '__main__':
             batch = []
 
             for j in range(batch_size):
-                image = cv2.cvtColor(cv2.imread(image_paths[i+j]), cv2.COLOR_BGR2RGB)
-                batch.append(image)
+                if i+j >= len(image_paths):
+			batch.append(batch[-1])
+		else:
+			image = cv2.cvtColor(cv2.imread(image_paths[i+j]), cv2.COLOR_BGR2RGB)
+                	batch.append(image)
 
             batch_detections = model.detect(batch)
 

@@ -103,7 +103,7 @@ def main(_):
             output_name = os.path.splitext(os.path.basename(image_path))[0]
 
             disp_to_img = disp_pp.squeeze()
-            plt.imsave(os.path.join(output_dir, output_name), disp_to_img, cmap='plasma')
+            plt.imsave(os.path.join(output_dir, output_name + '.png'), disp_to_img, cmap='plasma')
 
 if __name__ == '__main__':
     tf.app.run()
