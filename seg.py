@@ -35,7 +35,7 @@ mean = calculate_mean()
 class CommaConfig(coco.CocoConfig):
     NAME = 'comma.ai'
 
-    GPU_COUNT = 1	    
+    GPU_COUNT = 1
     IMAGES_PER_GPU = batch_size
 
     IMAGE_MIN_DIM = 256
@@ -57,9 +57,9 @@ if __name__ == '__main__':
 
             for j in range(batch_size):
                 if i+j >= len(image_paths):
-			batch.append(batch[-1])
-		else:
-			image = cv2.cvtColor(cv2.imread(image_paths[i+j]), cv2.COLOR_BGR2RGB)
+			        batch.append(batch[-1])
+		        else:
+			        image = cv2.cvtColor(cv2.imread(image_paths[i+j]), cv2.COLOR_BGR2RGB)
                 	batch.append(image)
 
             batch_detections = model.detect(batch)
